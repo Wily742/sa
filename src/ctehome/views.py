@@ -9,6 +9,7 @@ def home_page_view(request, *args,**kwargs):
     qs=PageVisit.objects.all()
     Page_qs =PageVisit.objects.filter(path=request.path)
     my_title="My page"
+    html_template = "home.html"
     my_context={
         "page_title":my_title,
         "page_visit_count":Page_qs.count(),
@@ -17,7 +18,6 @@ def home_page_view(request, *args,**kwargs):
     }
     path=request.path
     print("path",path)
-    html_template = "home.html"
     PageVisit.objects.create(path=request.path)
    # html_file_Path=this_dir / "home.html"
    #html_=html_file_Path.read_text()
